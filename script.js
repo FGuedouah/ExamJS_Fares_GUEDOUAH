@@ -11,8 +11,9 @@ function afficherProduits(data) {
     divProduitCard.classList.add("col-3");
 
     divProduitCard.innerHTML = `
-        <img src="${produit.image}" class="card-img-top alt="${produit.nom_produit}"/>
+        <img src="${produit.image}" class="card-img-top mb-2 object-fit-fill border rounded" alt="${produit.nom_produit}"/>
         <div class="card-body">
+            <h4>${produit.prix}</h4>
             <h5 class="card-title">${produit.nom_produit}</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
@@ -36,17 +37,17 @@ function voirDetail(index){
         window.location.href = "detail.html";
     })
     .catch((error) => console.log(error));
-
-
-//   const btnsAddToCart = document.querySelectorAll(".addToCart");
-//   btnsAddToCart.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//       let index = this.getAttribute("data-index");
-//       productsCartList.push(data[index]);
-//       afficherProduits();
-//     });
-//   });
 }
+
+  const btnsAddToCart = document.querySelectorAll(".ajouterPanier");
+  btnsAddToCart.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      let index = this.getAttribute("data-index");
+      productsCartList.push(data[index]);
+      afficherProduits();
+    });
+  });
+
 
 // Récupere les données inscritent dans le JSON
 fetch("produits.json")
