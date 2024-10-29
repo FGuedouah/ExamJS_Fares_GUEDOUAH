@@ -1,5 +1,7 @@
 let produit = JSON.parse(localStorage.getItem("produitDetail"));
-console.log(produit);
+let panierProduit = JSON.parse(localStorage.getItem("panierProduits"));
+console.log("Nom produit ", produit);
+console.log("Panier ", panierProduit);
 let divProduitDetail = document.getElementById("produitDetail");
 
 divProduitDetail.innerHTML = `
@@ -28,5 +30,6 @@ divProduitDetail.innerHTML = `
         </div>
       </div>
     </div>
+`
 
-`;
+;
