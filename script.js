@@ -32,7 +32,7 @@ function afficherProduits(data) {
     btn.addEventListener("click", function () {
       let index = this.getAttribute("data-index");
       
-           // Vérifier si le produit est déjà dans le panier
+           // Vérifie si le produit est déjà dans le panier
            let produitDansPanier = panierProduit.find(
             produit => produit[0].nom_produit === data[index].nom_produit
           );
