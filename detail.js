@@ -1,7 +1,5 @@
 let produit = JSON.parse(localStorage.getItem("produitDetail"));
 let panierProduit = JSON.parse(localStorage.getItem("panierProduits"));
-console.log("Nom produit ", produit);
-console.log("Panier ", panierProduit);
 let divProduitDetail = document.getElementById("produitDetail");
 
 divProduitDetail.innerHTML = `
@@ -31,5 +29,33 @@ divProduitDetail.innerHTML = `
       </div>
     </div>
 `
-
 ;
+
+// Fonction pour gérer l'ajout au panier
+const btnsAjouterPanier = document.querySelectorAll(".ajouterPanier");
+
+btnsAjouterPanier.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    let index = this.getAttribute("data-index");
+    
+    // Vérifie si le produit est déjà dans le panier
+    let produitDansPanier = panierProduit.find(
+      produitInPanier => produitInPanier[0].nom_produit === produit.nom_produit
+    );
+
+    if (produitDansPanier) {
+      // Si le produit existe déjà, augmenter la quantité
+      produitDansPanier[1].quantity += 1;
+      console.log("Produit déjà dans le panier, quantité augmentée :", produitDansPanier[1].quantity);
+    } else {
+      // Sinon, ajouter le produit avec une quantité de 1
+      panierProduit.push([produit, { quantity: 1 }]);
+      console.log("Produit ajouté au panier :", produit.nom_produit);
+    }
+
+    // Met à jour le localStorage
+    alert("Produit ajouté au panier")
+    localStorage.setItem("panierProduits", JSON.stringify(panierProduit));
+    console.log("Panier mis à jour :", panierProduit);
+  });
+});

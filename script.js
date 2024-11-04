@@ -22,34 +22,34 @@ function afficherProduits(data) {
         </div>
         `;
     produits.appendChild(divProduitCard);
-
   });
   var quantityObj = {
-    quantity : 1  
-  }
+    quantity: 1,
+  };
   const btnsAjouterPanier = document.querySelectorAll(".ajouterPanier");
   btnsAjouterPanier.forEach((btn) => {
     btn.addEventListener("click", function () {
       let index = this.getAttribute("data-index");
-      
-           // Vérifie si le produit est déjà dans le panier
-           let produitDansPanier = panierProduit.find(
-            produit => produit[0].nom_produit === data[index].nom_produit
-          );
 
-          if (produitDansPanier) {
-            // Si le produit existe déjà, augmenter la quantité
-            produitDansPanier[1].quantity += 1;
-            console.log("Produit déjà dans le panier, quantité augmentée :", produitDansPanier[1].quantity);
-          } else {
-            // Sinon, ajouter le produit avec une quantité de 1
-            panierProduit.push([data[index], { quantity: 1 }]);
-            console.log("Produit ajouté au panier :", data[index].nom_produit);
-          }  
-      
-      console.log(panierProduit)
+      // Vérifie si le produit est déjà dans le panier
+      let produitDansPanier = panierProduit.find(
+        (produit) => produit[0].nom_produit === data[index].nom_produit
+      );
+
+      if (produitDansPanier) {
+        // Si le produit existe déjà, augmenter la quantité
+        produitDansPanier[1].quantity += 1;
+        console.log(
+          "Produit déjà dans le panier, quantité augmentée :",
+          produitDansPanier[1].quantity
+        );
+      } else {
+        // Sinon, ajouter le produit avec une quantité de 1
+        panierProduit.push([data[index], { quantity: 1 }]);
+        console.log("Produit ajouté au panier :", data[index].nom_produit);
+      }
+      alert("Produit ajouté au panier");
       localStorage.setItem("panierProduits", JSON.stringify(panierProduit));
-
     });
   });
 }
