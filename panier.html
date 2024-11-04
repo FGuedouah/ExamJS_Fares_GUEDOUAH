@@ -15,6 +15,70 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="panier"></div>
+    <div class="d-flex">
+        <div id="panier"></div>
+        <div id="form-commande">
+            <form name="contact" id="contact" onsubmit="validateContact();">
+                <div class="formData">
+                  <label>Prénom *</label><br />
+                  <input
+                    class="text-control"
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    minlength="2"
+                  /><br />
+                </div>
+                <div class="formData">
+                  <label>Nom *</label><br />
+                  <input class="text-control" type="text" id="nom" name="nom" /><br />
+                </div>
+                <div class="formData">
+                  <label>E-mail *</label><br />
+                  <input
+                    class="text-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                  /><br />
+                </div>
+                <div class="formData">
+                    <label>Téléphone</label><br />
+                    <input type="number" class="text-control" id="telephone" name="telephone"/>
+                    <br/>
+                  </div>
+                <div class="formData">
+                  <label>Adresse</label><br />
+                  <input type="text" class="text-control" id="adresse" name="adresse"/>
+                  <br/>
+                </div>
+
+                <div class="formData">
+                  <input class="checkbox-input" type="checkbox" id="checkboxDonnee"   />
+                  <label class="checkbox2-label" for="checkboxDonnee" required>
+                    <span class="checkbox-icon"></span>
+                    J'ai lu et accepté les conditions d'utilisation.
+                  </label>
+                  <br />
+                  <input class="checkbox-input" type="checkbox" id="checkboxRGPD" />
+                  <label class="checkbox2-label" for="checkboxRGPD" required>
+                    <span class="checkbox-icon"></span>
+                    J'autorise ce site a conserver mes données personnelles transmises via
+                    ce formulaire. Aucune exploitation commerciale ne sera faite des
+                    données conservées. Voir notre politique de gestion des données
+                    personnelles
+                  </label>
+                  <br />
+                </div>
+                <input
+                  class="btn-submit"
+                  type="submit"
+                  class="button"
+                  value="Confirmer la commande"
+                />
+              </form>
+        </div>
+    </div>
+    
   </body>
 </html>
