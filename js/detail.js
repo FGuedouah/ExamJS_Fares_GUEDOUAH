@@ -5,10 +5,10 @@ let divProduitDetail = document.getElementById("produitDetail");
 divProduitDetail.innerHTML = `
     <div class="card mb-3">
       <div class="row g-0">
-        <div class="col md-4 sm-3">
-          <img src=${produit.image} class="img-fluid" width="100%" "/>
+        <div class="col-md-4 col-sm-2">
+          <img src=${produit.image} class="img-fluid w-100"/>
         </div>
-        <div class="col md-4 sm-3">
+        <div class="col-md-8 col-sm-4">
           <div class="card-body">
             <h2 class="card-title">${produit.nom_produit}</h2>
             <hr>

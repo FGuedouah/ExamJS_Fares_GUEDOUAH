@@ -7,8 +7,7 @@ function afficherProduits(data) {
   // pour chaque produits de mon json
   data.forEach((produit, index) => {
     let divProduitCard = document.createElement("div");
-    divProduitCard.classList.add("card");
-    divProduitCard.classList.add("col-3");
+    divProduitCard.classList.add("card", "col-lg-3","col-md-6", "col-sm-12");
 
     divProduitCard.innerHTML = `
         <img src="${produit.image}" class="card-img-top mb-2 object-fit-fill border rounded" alt="${produit.nom_produit}"/>
@@ -17,8 +16,8 @@ function afficherProduits(data) {
             <h5 class="card-title">${produit.nom_produit}</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
-        <button  class=" btn voirDetail mb-1" onclick="voirDetail(${index})">En savoir plus</button>
-        <button class="ajouterPanier mb-2" data-index="${index}">Ajouter au panier</button>
+        <button  class=" btn voirDetail mb-1 btn btn-primary" onclick="voirDetail(${index})">En savoir plus</button>
+        <button class="ajouterPanier mb-2 btn btn-success" data-index="${index}">Ajouter au panier</button>
         </div>
         `;
     produits.appendChild(divProduitCard);
@@ -55,18 +54,18 @@ function afficherProduits(data) {
 }
 
 function voirDetail(index) {
-  fetch("produits.json")
+  fetch("/resources/produits.json")
     .then((response) => response.json())
     .then((data) => {
       let produit = data[index];
       localStorage.setItem("produitDetail", JSON.stringify(produit));
-      window.location.href = "detail.html";
+      window.location.href = "../detail.html";
     })
     .catch((error) => console.log(error));
 }
 
 // Récupere les données inscritent dans le JSON
-fetch("produits.json")
+fetch("/resources/produits.json")
   .then((response) => response.json())
   .then((data) => afficherProduits(data))
   .catch((error) => console.log(error));

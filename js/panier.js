@@ -18,15 +18,15 @@ function afficherPanier() {
       divPanier.innerHTML += `
         <div class="card mb-3">
           <div class="row g-0">
-            <div class="col md-4 sm-3">
-              <img src=${produit[0].image} class="img-fluid" width="100%" />
+          <div class="col-12 col-md-3 col-sm-4">
+              <img src=${produit[0].image} class="img-fluid w-100" />
             </div>
-            <div class="col md-4 sm-3">
+            <div class="col-12 col-md-4 col-sm-3">
               <div class="card-body">
                 <h2 class="card-title">${produit[0].nom_produit}</h2>
                 <hr>
                 <div>
-                    <h4>${prixProduitTotal.toFixed(2)} € - </h4>
+                    <h4>${prixProduitTotal.toFixed(2)} € </h4>
                     <div class="d-flex align-items-center">
                         <button class="ajouterQuantite" data-index="${index}">+</button>
                         <h4 class="mx-2">x${produit[1].quantity}</h4>
@@ -51,6 +51,7 @@ function afficherPanier() {
     divPanier.innerHTML += `
       <div class="text-center">
           <h2>Panier vide</h2>
+          <a href="index.html"><button class="btn btn-success">Retour à l'accueil</button></a></div>
       </div>
     `;
   }
@@ -108,8 +109,14 @@ function validateContact(e){
     alert("Remplissez tous les champs !!!");
     event.preventDefault();
   } else {
+
+  let recapCommande = "";
+  panierProduit.forEach((produit, index) => {
+    recapCommande+=produit[0].nom_produit + " x"+ produit[1].quantity + " - " + parseFloat(produit[0].prix.replace("€", ""))*produit[1].quantity + " €\n"
+  })
+
+    alert(`Votre commande a bien été validé :\n${recapCommande} \nTotal : ${prixTotalPanier.toFixed(2)} €`);
     panierProduit.length = 0;
     localStorage.setItem("panierProduits", JSON.stringify(panierProduit));
-    alert("Votre commande a bien été validé");
   }
 }
