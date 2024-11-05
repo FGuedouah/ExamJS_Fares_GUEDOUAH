@@ -1,4 +1,4 @@
-let panierProduit = JSON.parse(localStorage.getItem("panierProduits")) || []; // Récupère les éléments du panier ou un tableau vide // recuepere les elements du panier
+let panierProduit = JSON.parse(localStorage.getItem("panierProduits")) || []; // Récupère les éléments du panier ou un tableau vide 
 let divPanier = document.getElementById("panier");
 let prixTotalPanier = 0; // Prix total du panier
 
