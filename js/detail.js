@@ -1,5 +1,5 @@
 let produit = JSON.parse(localStorage.getItem("produitDetail"));
-let panierProduit = JSON.parse(localStorage.getItem("panierProduits"));
+let panierProduit = JSON.parse(localStorage.getItem("panierProduits")) || [];
 let divProduitDetail = document.getElementById("produitDetail");
 
 divProduitDetail.innerHTML = `
