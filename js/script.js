@@ -59,7 +59,7 @@ function voirDetail(index) {
     .then((data) => {
       let produit = data[index];
       localStorage.setItem("produitDetail", JSON.stringify(produit));
-      window.location.href = "../detail.html";
+      window.location.href = "./detail.html";
     })
     .catch((error) => console.log(error));
 }
