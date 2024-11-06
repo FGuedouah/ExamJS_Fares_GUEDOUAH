@@ -12,6 +12,9 @@ Installation :
 - Via votre IDE, installez l'extension Live Server
 - Clic droit sur index.html -> Open with Live Server
 
+OU 
+ - Vous pouvez y accéder via : https://fguedouah.github.io/ExamJS_Fares_GUEDOUAH/
+
 Comment utiliser le site : 
 - Pour accéder à l'accueil, cliquez sur "Accueil" dans la barre de navigation
 - Pour accéder à votre panier, cliquez sur "Panier"
