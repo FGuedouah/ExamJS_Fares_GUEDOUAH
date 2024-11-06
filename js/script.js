@@ -54,7 +54,7 @@ function afficherProduits(data) {
 }
 
 function voirDetail(index) {
-  fetch("../resources/produits.json")
+  fetch("./resources/produits.json")
     .then((response) => response.json())
     .then((data) => {
       let produit = data[index];
@@ -65,7 +65,7 @@ function voirDetail(index) {
 }
 
 // Récupere les données inscritent dans le JSON
-fetch("../resources/produits.json")
+fetch("./resources/produits.json")
   .then((response) => response.json())
   .then((data) => afficherProduits(data))
   .catch((error) => console.log(error));
